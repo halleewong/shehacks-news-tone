@@ -14,7 +14,7 @@ service = build("customsearch", "v1",developerKey=dkey_hallee)
 
 def getOtherArticles(query, cx_key):
     """
-    Using google search API, returns json results 
+    Using google search API, returns json results
     """
     result = service.cse().list(q=query,
                          cx=cx_key).execute()
@@ -32,7 +32,7 @@ def getSingleArticle(articles, index=0):
     return(d)
 
 if __name__ == '__main__':
-    temp = getOtherArticles('bitcoin', cx_key=cx_foxnews)
+    temp = getOtherArticles('bitcoin capital markets', cx_key=cx_foxnews)
     print(getSingleArticle(temp,index=0))
 
     temp2 = getOtherArticles('bitcoin', cx_key=cx_nyt)
