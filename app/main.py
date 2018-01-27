@@ -3,12 +3,11 @@ from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
 from getKeyWords import *
+from getOtherArticles import *
 import pprint
-from googleapiclient.discovery import build
 
 app = Flask(__name__)
-service = build("customsearch", "v1",
-                    developerKey="AIzaSyCPL0cwFkubZ5vTkFOWmH81SbWWjRryLTI")
+
 @app.route('/')
 def homepage():
     # Return a Jinja2 HTML template and pass in image_entities as a parameter.
@@ -30,12 +29,11 @@ def run_language():
     # Retrieve response from Natural Language's analyze_sentiment() method
     response = client.analyze_sentiment(document=document)
     sentiment = response.document_sentiment
-    
+
     query = getKeyWords(entities, numDesired=3)
 
-    other_articles = service.cse().list(q=query,
-                             cx='007132195453603093421:pxo7dgmvtho',
-                             siteSearch='https://www.mirror.co.uk/news/').execute()
+    other_articles = getOtherArticles(query)
+
     #pprint.pprint(other_articles)
 
     return render_template('../index.html', text=text, sentiment=sentiment, other=other_articles)
