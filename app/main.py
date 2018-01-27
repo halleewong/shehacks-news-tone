@@ -28,15 +28,30 @@ def run_language():
 
     # Retrieve response from Natural Language's analyze_sentiment() method
     response = client.analyze_sentiment(document=document)
-    sentiment = response.document_sentiment
+    sentiment = response.document_sentiment.score #sentiment score of input text
 
     query = getKeyWords(entities, numDesired=3)
+    other_articles = list()
+    sentiment_scores = list()
 
-    other_articles = getOtherArticles(query)
+    for cx in [cx_foxnews, cx_nyt]: # note cx_... are defined in getOtherArticles
+        # get search results
+        results = getOtherArticles(query, cx_key = )
+        topresult = getSingleArticle(results, index=0)
+
+        # get sentiment score
+        score = client.analyze_sentiment(document=topresult['snippet']).document_sentiment.score
+
+        # save info
+        sentiment_scores.append(score)
+        other_articles.append(topresult)
 
     #pprint.pprint(other_articles)
 
-    return render_template('../index.html', text=text, sentiment=sentiment, other=other_articles)
+    return render_template('../index.html', text=text,
+                                            sentiment=sentiment,
+                                            other_articles=other_articles
+                                            sentiment_scores=sentiment_scores)
 
 @app.errorhandler(500)
 def server_error(e):
