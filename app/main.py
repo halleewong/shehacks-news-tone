@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     # Return a Jinja2 HTML template and pass in image_entities as a parameter.
-    return render_template('homepage.html')
+    return render_template('index.html')
 
 @app.route('/run_language', methods=['GET', 'POST'])
 def run_language():
@@ -38,7 +38,7 @@ def run_language():
 
     for cx in [cx_foxnews, cx_nyt]: # note cx_... are defined in getOtherArticles
         # get search results
-        results = getOtherArticles(query, cx_key = )
+        results = getOtherArticles(query, cx_key = cx)
         topresult = getSingleArticle(results, index=0)
 
         # get sentiment score
@@ -50,10 +50,8 @@ def run_language():
 
     #pprint.pprint(other_articles)
 
-    return render_template('../index.html', text=text,
-                                            sentiment=sentiment,
-                                            other_articles=other_articles
-                                            sentiment_scores=sentiment_scores)
+    return render_template('index.html', text=text,
+                                            sentiment=sentiment)
 
 @app.errorhandler(500)
 def server_error(e):
