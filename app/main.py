@@ -38,7 +38,7 @@ def run_language():
                              siteSearch='https://www.mirror.co.uk/news/').execute()
     #pprint.pprint(other_articles)
 
-    return render_template('homepage.html', text=text, sentiment=sentiment, other=other_articles)
+    return render_template('../index.html', text=text, sentiment=sentiment, other=other_articles)
 
 @app.errorhandler(500)
 def server_error(e):
