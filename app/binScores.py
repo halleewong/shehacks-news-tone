@@ -11,9 +11,13 @@ def binScores(lst):
     for num in lst:
         if num <= -0.3:
             negCount += 1
-        else if num > -0.3 and num < 0.3:
+        elif num > -0.3 and num < 0.3:
             neutralCount += 1
         else:
             posCount += 1
 
     return([posCount,neutralCount,negCount])
+
+if __name__ == '__main__':
+    print(binScores([-0.5,0,0.5]))
+    print(binScores([-0.5,-0.5,0,0.5]))
