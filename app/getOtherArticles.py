@@ -6,7 +6,6 @@ dkey_hallee ="AIzaSyCPL0cwFkubZ5vTkFOWmH81SbWWjRryLTI"
 cx_foxnews = '004259363863783706405:p0jsn9xte3u'
 cx_nyt = '004259363863783706405:phem9rfvts8'
 
-
 service = build("customsearch", "v1",developerKey=dkey_hallee)
 
 def getOtherArticles(query, cx_key):

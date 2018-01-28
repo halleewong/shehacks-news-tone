@@ -26,6 +26,6 @@ def get_articles_table(list_of_dic):
     return ArticleTable(new_list_of_dic, border=False)
 
 if __name__ == '__main__':
-    fake = [{'title':'a','link':'1'}]
+    fake = [{'title':'a','link':'1','sentiment_score':0.333}]
     print fake
     print get_articles_table(fake)
