@@ -2,7 +2,7 @@ from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
 
-def getKeyWords(entities, numDesired = 3):
+def getKeyWords(entities, numDesired = 4):
     # parameters:
     #    entities - an entity object list  returned by google NLP API
     #    numDesired - number of entity names to return
