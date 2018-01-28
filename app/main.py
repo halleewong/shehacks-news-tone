@@ -47,29 +47,31 @@ def get_analytics():
             # get search results
             results = getOtherArticles(query, cx_key = cx)
 
-            topresult = getSingleArticle(results, index=0)
+            for i in range(3):
+                topresult = getSingleArticle(results, index=i)
 
-            temp = topresult['snippet']
-            temp = unicodedata.normalize('NFKD',temp).encode('ascii','ignore')
-            document = language.types.Document(content=temp, type=enums.Document.Type.PLAIN_TEXT)
+                if 'snippet' in topresult:
+                    temp = topresult['snippet']
+                    temp = unicodedata.normalize('NFKD',temp).encode('ascii','ignore')
+                    document = language.types.Document(content=temp, type=enums.Document.Type.PLAIN_TEXT)
 
-            # get sentiment score
-            score = client.analyze_sentiment(document=document).document_sentiment.score
-            topresult['sentiment_score'] = score
+                    # get sentiment score
+                    score = client.analyze_sentiment(document=document).document_sentiment.score
+                    topresult['sentiment_score'] = score
 
-            # save info
-            sentiment_scores.append(score)
-            other_articles.append(topresult)
+                    # save info
+                    sentiment_scores.append(score)
+                    other_articles.append(topresult)
 
         # bin the sentiment scores for pie chart
         numbers_for_pie = binScores(sentiment_scores)
 
         # sort the dictionary of articles by score
-        #other_articles_sorted = sorted(other_articles, key=lambda k: k['sentiment_score'])
+        other_articles_sorted = sorted(other_articles, key=lambda k: k['sentiment_score'])
 
         return render_template('analytics.html',
-                                #numbers_for_pie = numbers_for_pie,
-                                #other_articles_sorted = other_articles_sorted
+                                numbers_for_pie = numbers_for_pie,
+                                other_articles_sorted = other_articles_sorted,
                                 text=text, # text from user
                                 sentiment=sentiment # the sentiment of the text from user
                                 )

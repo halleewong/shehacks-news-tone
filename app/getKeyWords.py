@@ -1,3 +1,7 @@
+from google.cloud import language
+from google.cloud.language import enums
+from google.cloud.language import types
+
 def getKeyWords(entities, numDesired = 3):
     # parameters:
     #    entities - an entity object list  returned by google NLP API
@@ -22,4 +26,20 @@ def getKeyWords(entities, numDesired = 3):
 	    break
         count += 1
 
-    return(str)
+    return(string)
+
+if __name__ == '__main__':
+
+    text = 'bitcoin'
+
+    # Create a Cloud Natural Language client.
+    client = language.LanguageServiceClient()
+
+    # Retrieve inputs and create document object
+    document = language.types.Document(content=text, type=enums.Document.Type.PLAIN_TEXT)
+
+    # Retrieve response from Natural Language's analyze_entities() method
+    response = client.analyze_entities(document=document)
+    entities = response.entities
+    print(entities)
+    print(getKeyWords(entities, numDesired = 3))

@@ -6,8 +6,8 @@
 
 {% endblock %}
 {% block content %}
+
 <canvas id="barChart"></canvas>
-<center>
 <div class="container">
   <div class="row">
       <div class="col-md-6">
@@ -22,7 +22,11 @@
       </div>
   </div>
 </div>
-</center>
+
+<div class="container">
+  {{text}}
+  {{numbers_for_pie}}
+</div>
 
 <!-- you need to include the shieldui css and js assets in order for the grids to work -->
 <script
@@ -37,7 +41,7 @@ crossorigin="anonymous"></script>
 
 <script type="text/javascript">
   jQuery(function ($) {
-      var data1 = [12, 3, 4];
+      var data1 = {{numbers_for_pie}};
 
       $(function () {
           $("#chart1").shieldChart({

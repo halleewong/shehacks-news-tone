@@ -39,7 +39,7 @@
     .form-control{
     	width: 50%;
     }
-    a{
+    a {
     	color: white;
     }
     </style>
@@ -78,13 +78,11 @@
       <p>Text<input type = "text" name = "text" /></p>
       <p><input type="submit" value="submit"/></p>
   </form>
-
+  <div id="content">{% block content %}{% endblock %}</div>
+  <div id="footer">
+      {% block footer %}
+      &copy; SheHacks 2018!
+      {% endblock %}
+  </div>
   </body>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
-        {% block footer %}
-        &copy; SheHacks 2018!
-        {% endblock %}
-    </div>
-</body>
 </html>
