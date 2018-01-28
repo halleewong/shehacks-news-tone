@@ -57,9 +57,11 @@ def run_language():
     numbers_for_pie = binScores(sentiment_scores)
 
     # sort the dictionary of articles by score
-
+    other_articles_sorted = sorted(other_articles, key=lambda k: k['sentiment_score'])
 
     return render_template('index.html',
+                            #numbers_for_pie = numbers_for_pie,
+                            #other_articles_sorted = other_articles_sorted
                             text=text, # text from user
                             sentiment=sentiment # the sentiment of the text from user
                             )
