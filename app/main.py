@@ -40,7 +40,7 @@ def get_analytics():
         sentiment = response.document_sentiment.score #sentiment score of input text
 
         # assembly query for custom google searches
-        query = getKeyWords(entities, numDesired=3)
+        query = getKeyWords(entities, numDesired=5)
 
         other_articles = list()
         sentiment_scores = list()
