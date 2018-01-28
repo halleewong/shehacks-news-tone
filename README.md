@@ -30,5 +30,7 @@ We deployed a web application in Flask that uses some of the Google Cloud APIs. 
 
 To visually represent the data obtained, a pie graph with the sentiment scores is used to represent the percentage of the similar articles that have a positive, negative, or a neutral tone. 
 
+https://citric-lead-160714.appspot.com
+
 
 
