@@ -28,7 +28,7 @@ We relied on the Google Cloud Natural Language API to measure the sentiment anal
 
 We deployed a web application in Flask that uses some of the Google Cloud APIs. It allows the user to enter a phrase, headline, or article. This input is passed to the Natural Language API to get a list of the most relevant keywords in it. Finally, these keywords are used to find similar articles from the following news sources— Fox News, The New York Times, CNN, The Washington Post, Google News, The New Yorker, The Economist, NBC News, ABC News, and CBS News. 
 
-To visually represent the data obtained, a pie graph with the sentiment scores is used to represent the percentage of the similar articles that have a positive, negative, or a neutral tone. 
+To visually represent the data obtained, a pie graph with the sentiment scores is used to represent the percentage of the similar articles that have a positive, negative, or a neutral tone. The closer that an article is to a neutral tone will denote that it contains mostly facts as opposed to a biased or opinionated article. 
 
 https://citric-lead-160714.appspot.com
 
