@@ -28,7 +28,7 @@
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-      
+
         chart.draw(data, options);
       }
     </script>
@@ -36,8 +36,9 @@
 {% block content %}
 
 
+
 <div class="container">
-  <h5>Your Keywords: </h5>
+  <h5>Your Keywords: </h5> {{query}}
 
   <div class="row">
       <div class="col-md-6">
@@ -54,6 +55,9 @@
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <h3>Articles</h3>
+                      {{table}}
+
+
                   </div>
               </div>
           </div>
@@ -61,10 +65,12 @@
   </div>
 </div>
 
+<!--
 <div class="container">
   {{text}}
   {{numbers_for_pie}}
 </div>
+-->
 
 <!-- you need to include the shieldui css and js assets in order for the grids to work -->
 <script

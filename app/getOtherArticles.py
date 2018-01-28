@@ -1,13 +1,10 @@
 from googleapiclient.discovery import build
 import pprint
+import unicodedata
 
 dkey_hallee ="AIzaSyCPL0cwFkubZ5vTkFOWmH81SbWWjRryLTI"
 cx_foxnews = '004259363863783706405:p0jsn9xte3u'
 cx_nyt = '004259363863783706405:phem9rfvts8'
-
-
-cx_cynth = '007132195453603093421:pxo7dgmvtho'
-dkey_cynth = "AIzaSyCPL0cwFkubZ5vTkFOWmH81SbWWjRryLTI"
 
 
 service = build("customsearch", "v1",developerKey=dkey_hallee)
@@ -27,10 +24,12 @@ def getSingleArticle(articles, index=0):
     d = dict()
     if 'items' in articles:
         if len(articles['items']) > index:
-            d['title'] = articles['items'][index]['title']
-            d['snippet'] = articles['items'][index]['snippet']
-            d['link'] = articles['items'][index]['link']
+            d['title'] = unicodedata.normalize('NFKD',articles['items'][index]['title']).encode('ascii','ignore')
+            d['snippet'] = unicodedata.normalize('NFKD',articles['items'][index]['snippet']).encode('ascii','ignore')
+            d['link'] = unicodedata.normalize('NFKD',articles['items'][index]['link']).encode('ascii','ignore')
     return d
+
+
 
 if __name__ == '__main__':
     temp = getOtherArticles('bitcoin capital markets', cx_key=cx_foxnews)

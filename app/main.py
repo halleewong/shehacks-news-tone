@@ -1,3 +1,4 @@
+# -*- coding: ascii -*-
 from flask import Flask, redirect, render_template, request
 from google.cloud import language
 from google.cloud.language import enums
@@ -9,6 +10,7 @@ import unicodedata
 from getKeyWords import *
 from getOtherArticles import *
 from binScores import *
+import ArticlesTables
 
 app = Flask(__name__)
 
@@ -52,7 +54,7 @@ def get_analytics():
 
                 if 'snippet' in topresult:
                     temp = topresult['snippet']
-                    temp = unicodedata.normalize('NFKD',temp).encode('ascii','ignore')
+                    #temp = unicodedata.normalize('NFKD',temp).encode('ascii','ignore')
                     document = language.types.Document(content=temp, type=enums.Document.Type.PLAIN_TEXT)
 
                     # get sentiment score
@@ -69,9 +71,13 @@ def get_analytics():
         # sort the dictionary of articles by score
         other_articles_sorted = sorted(other_articles, key=lambda k: k['sentiment_score'])
 
+        table = ArticlesTables.get_articles_table(other_articles_sorted)
+
         return render_template('analytics.html',
+                                query = ", ".join(query.split()),
                                 numbers_for_pie = numbers_for_pie,
                                 other_articles_sorted = other_articles_sorted,
+                                table = table,
                                 text=text, # text from user
                                 sentiment=sentiment # the sentiment of the text from user
                                 )

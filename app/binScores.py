@@ -9,9 +9,9 @@ def binScores(lst):
     negCount = 0
 
     for num in lst:
-        if num <= -0.3:
+        if num <= -0.1:
             negCount += 1
-        elif num > -0.3 and num < 0.3:
+        elif num > -0.1 and num < 0.1:
             neutralCount += 1
         else:
             posCount += 1
