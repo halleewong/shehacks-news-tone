@@ -1,3 +1,5 @@
-Flask==0.12.2
+flask==0.12.2
+flask_table
 google-cloud-language==1.0.0
+google-api-python-client
 gunicorn==19.7.1
