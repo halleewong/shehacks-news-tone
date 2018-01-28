@@ -17,7 +17,7 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     # Return a Jinja2 HTML template and pass in image_entities as a parameter.
-    return render_template('base.html')
+    return render_template('homepage.html')
 
 @app.route('/analytics', methods=['GET', 'POST'])
 def get_analytics():
@@ -82,7 +82,7 @@ def get_analytics():
                                 sentiment=sentiment # the sentiment of the text from user
                                 )
     else:
-        return render_template('base.html')
+        return render_template('homepage.html')
 
 
 @app.errorhandler(500)

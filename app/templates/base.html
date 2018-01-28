@@ -90,6 +90,12 @@
     #table {
       margin-top: 50px;
     }
+    div.col-md-4 {
+      padding: 0;
+    }
+    #photo-banner{
+      margin-bottom: 140px;
+    }
     </style>
 
 
@@ -102,7 +108,7 @@
 
   	<div class="row pink-header">
   		<div class="col-md-8">
-  			<h4> WHAT IS THE TONE OF THE NEWS? </h4>
+  			<h4> WHAT'S THE TONE OF THE NEWS? </h4>
   		</div>
   		<div class="col-md-3">
 
@@ -112,23 +118,13 @@
   		</div>
 
   	</div>
-  	<!--div class="row">
-  		<div class="col-md-4">
-  			<img width="445px" height="240px" src="images/1.jpg">
-  		</div>
-  		<div class="col-md-4">
-  			<img width="440px" height="240px" src="images/3.png">
-  		</div>
-  		<div class="col-md-4">
-  			<img width="440px" height="240px" src="images/2.jpg">
-  		</div>
-  	</div-->
+
 
   <div class="container">
 
     <form class="form-group" action="/analytics" method="POST">
         <h3 class="form-header">Enter keywords or text</h3>
-        <p><input class="form-control" id="keywords" type = "text" name = "text" /></p>
+        <p><input class="form-control" id="keywords" type = "text" name = "text" placeholder="try ... healthcare reform"/></p>
         <p><input class="btn btn-color" type="submit" value="submit"/></p>
     </form>
   </div>
