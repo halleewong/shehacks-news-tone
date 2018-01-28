@@ -42,4 +42,4 @@ if __name__ == '__main__':
     response = client.analyze_entities(document=document)
     entities = response.entities
     print(entities)
-    print(getKeyWords(entities, numDesired = 3))
+    print(getKeyWords(entities, numDesired = 4))
