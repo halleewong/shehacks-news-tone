@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <title>{% block title %}{% endblock %} - News Tone</title>
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/journal/bootstrap.min.css">
+
+  	<link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body{
+    	text-align: center;
+    }
+    .navbar-dark .navbar-brand {
+        color: #fff;
+        text-align: center;
+    }
+    .pink-header{
+    	background-color: #EB6864;
+    	padding: 20px;
+    }
+
+    .pink-header h4{
+    	color: white;
+    	font-size: 38px;
+    }
+
+    .navbar{
+    	font-size: 38px;
+    }
+    .fa{
+    	color: white;
+    	font-size: 50px;
+    }
+    .form-group{
+    	padding-top: 50px;
+    }
+    .form-control{
+    	width: 50%;
+    }
+    a{
+    	color: white;
+    }
+    </style>
+</head>
+<body>
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#"><centre>How Fake is the news articles?</centre></a>
+    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+  </nav> -->
+
+  	<div class="row pink-header">
+  		<div class="col-md-8">
+  			<h4> WHAT IS THE TONE OF THE NEWS ARTICLE? </h4>
+  		</div>
+  		<div class="col-md-3">
+
+  		</div>
+  		<div class="col-md-1">
+  			<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+  		</div>
+
+  	</div>
+  	<!--div class="row">
+  		<div class="col-md-4">
+  			<img width="445px" height="240px" src="images/1.jpg">
+  		</div>
+  		<div class="col-md-4">
+  			<img width="440px" height="240px" src="images/3.png">
+  		</div>
+  		<div class="col-md-4">
+  			<img width="440px" height="240px" src="images/2.jpg">
+  		</div>
+  	</div-->
+
+  <form action="/analytics" method="POST">
+      <p>Text<input type = "text" name = "text" /></p>
+      <p><input type="submit" value="submit"/></p>
+  </form>
+
+  </body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        &copy; SheHacks 2018!
+        {% endblock %}
+    </div>
+</body>
+</html>

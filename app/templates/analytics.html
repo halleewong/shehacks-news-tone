@@ -1,0 +1,66 @@
+<!-- New version -->
+{% extends "base.html" %}
+{% block title %}Analytics{% endblock %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+{% block content %}
+<canvas id="barChart"></canvas>
+<center>
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3>Sentiment Breakdown</h3>
+              </div>
+              <div class="panel-body">
+                  <div id="chart1"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</center>
+
+<!-- you need to include the shieldui css and js assets in order for the grids to work -->
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+<script type="text/javascript" src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js">
+</script>
+
+
+<script type="text/javascript">
+  jQuery(function ($) {
+      var data1 = [12, 3, 4];
+
+      $(function () {
+          $("#chart1").shieldChart({
+              exportOptions: {
+                  image: false,
+                  print: false
+              },
+              axisY: {
+                  title: {
+                      text: "Break-Down for selected quarter"
+                  }
+              },
+              dataSeries: [{
+                  seriesType: "pie",
+                  enablePointSelection: true,
+                  data: data1
+              }]
+          });
+
+
+
+      });
+
+  });
+</script>
+{% endblock %}
