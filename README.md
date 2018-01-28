@@ -26,3 +26,6 @@ Create a solution that will help combat the fake news phenomena.
 - Google Cloud Compute Engine
 - Google Cloud App Engine
 
+## Implemented Solution
+
+
