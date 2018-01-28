@@ -5,7 +5,10 @@ import unicodedata
 dkey_hallee ="AIzaSyCPL0cwFkubZ5vTkFOWmH81SbWWjRryLTI"
 cx_foxnews = '004259363863783706405:p0jsn9xte3u'
 cx_nyt = '004259363863783706405:phem9rfvts8'
-
+cx_cnn = '001907109530271471478:dp11uekvxic'
+cx_wapo = '001907109530271471478:aakp2mbfylu'
+cx_new_yorker = '001907109530271471478:8895fbplnww'
+cx_google_news = '001907109530271471478:hcqbunmdgvi'
 
 service = build("customsearch", "v1",developerKey=dkey_hallee)
 
