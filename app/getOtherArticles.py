@@ -9,6 +9,10 @@ cx_cnn = '001907109530271471478:dp11uekvxic'
 cx_wapo = '001907109530271471478:aakp2mbfylu'
 cx_new_yorker = '001907109530271471478:8895fbplnww'
 cx_google_news = '001907109530271471478:hcqbunmdgvi'
+cx_econ = '001907109530271471478:anp74kadp8o'
+cx_nbc = '001907109530271471478:u96utj0kceg'
+cx_abc = '001907109530271471478:dexcsubkw9q'
+cx_cbs = '001907109530271471478:krr5xpqmy5k'
 
 service = build("customsearch", "v1",developerKey=dkey_hallee)
 
