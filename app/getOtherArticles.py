@@ -19,7 +19,7 @@ def getOtherArticles(query, cx_key):
     result = service.cse().list(q=query,
                          cx=cx_key).execute()
     #pprint.pprint(result)
-    return(result)
+    return result
 
 def getSingleArticle(articles, index=0):
     """
@@ -29,11 +29,14 @@ def getSingleArticle(articles, index=0):
     d['title'] = articles['items'][index]['title']
     d['snippet'] = articles['items'][index]['snippet']
     d['link'] = articles['items'][index]['link']
-    return(d)
+    return d
 
 if __name__ == '__main__':
     temp = getOtherArticles('bitcoin capital markets', cx_key=cx_foxnews)
-    print(getSingleArticle(temp,index=0))
+    print getSingleArticle(temp,index=0)
 
     temp2 = getOtherArticles('bitcoin', cx_key=cx_nyt)
-    print(getSingleArticle(temp2,index=0))
+    t = getSingleArticle(temp2,index=0)
+    print t
+
+    print t['snippet']
