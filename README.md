@@ -27,5 +27,9 @@ Create a solution that will help combat the fake news phenomena.
 - Google Cloud App Engine
 
 ## Implemented Solution
+We heavily relied on the Google Cloud Natural Language API to use help us measure the semantic value of different news articles. Based on this semantic value, we can tell the tone of the articles which can help infer whether an article is more opinionated or factual. We created a website that uses many of the Google Cloud APIs that allows the user to enter a phrase, headline, or article; we then take the user's input and find the most relevant keywords to find other articles on the same topic. We search a total of 10 well-known news sources including Fox News, The New York Times, CNN, The Washington Post, Google News, The New Yorker, The Economist, NBC News, ABC News, and CBS News. 
+
+To make this analysis easy to understand, we took the semantic values and made a pie graph to denote what percentages of the articles on the user's topic have a more positive, negative, or neutral tone. 
+
 
 
