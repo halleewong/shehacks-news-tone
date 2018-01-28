@@ -8,6 +8,7 @@
 
   	<link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
     body{
     	text-align: center;
@@ -17,7 +18,7 @@
         text-align: center;
     }
     .pink-header{
-    	background-color: #EB6864;
+    	background-color: #4ABDAC;
     	padding: 20px;
     }
 
@@ -33,16 +34,36 @@
     	color: white;
     	font-size: 50px;
     }
+
     .form-group{
     	padding-top: 50px;
+      margin-top: 25px;
+      border: 3px solid #D3D3D3;
+      border-radius: 7px;
+    }
+    form.form-group{
+      margin-bottom: 50px;
     }
     .form-control{
     	width: 50%;
+      margin: 0 auto;
     }
+
     a {
     	color: white;
     }
+
+    .btn-color{
+      background-color: #4ABDAC;
+      color: white;
+    }
+    h5{
+      text-align: center;
+      margin-bottom: 25px;
+    }
     </style>
+
+
 </head>
 <body>
   <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -52,7 +73,7 @@
 
   	<div class="row pink-header">
   		<div class="col-md-8">
-  			<h4> WHAT IS THE TONE OF THE NEWS ARTICLE? </h4>
+  			<h4> WHAT IS THE TONE OF THE NEWS? </h4>
   		</div>
   		<div class="col-md-3">
 
@@ -74,10 +95,14 @@
   		</div>
   	</div-->
 
-  <form action="/analytics" method="POST">
-      <p>Text<input type = "text" name = "text" /></p>
-      <p><input type="submit" value="submit"/></p>
-  </form>
+  <div class="container">
+
+    <form class="form-group" action="/analytics" method="POST">
+        <h3 class="form-header">Enter keywords</h3>
+        <p><input class="form-control" id="keywords" type = "text" name = "text" /></p>
+        <p><input class="btn btn-color" type="submit" value="submit"/></p>
+    </form>
+  </div>
   <div id="content">{% block content %}{% endblock %}</div>
   <div id="footer">
       {% block footer %}
