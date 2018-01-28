@@ -45,7 +45,7 @@ def get_analytics():
         other_articles = list()
         sentiment_scores = list()
 
-        for cx in [cx_foxnews, cx_nyt]: # note cx_... are defined in getOtherArticles
+        for cx in [cx_foxnews, cx_nyt, cx_cnn, cx_wapo, cx_new_yorker, cx_google_news]: # note cx_... are defined in getOtherArticles
             # get search results
             results = getOtherArticles(query, cx_key = cx)
 
