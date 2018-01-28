@@ -2,9 +2,12 @@ from flask import Flask, redirect, render_template, request
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
+import pprint
+
+# human written functions
 from getKeyWords import *
 from getOtherArticles import *
-import pprint
+from binScores import *
 
 app = Flask(__name__)
 
@@ -39,19 +42,27 @@ def run_language():
     for cx in [cx_foxnews, cx_nyt]: # note cx_... are defined in getOtherArticles
         # get search results
         results = getOtherArticles(query, cx_key = cx)
+
         topresult = getSingleArticle(results, index=0)
 
         # get sentiment score
         score = client.analyze_sentiment(document=topresult['snippet']).document_sentiment.score
+        topresult['sentiment_score'] = score
 
         # save info
         sentiment_scores.append(score)
         other_articles.append(topresult)
 
-    #pprint.pprint(other_articles)
+    # bin the sentiment scores for pie chart
+    numbers_for_pie = binScores(sentiment_scores)
 
-    return render_template('index.html', text=text,
-                                            sentiment=sentiment)
+    # sort the dictionary of articles by score
+
+
+    return render_template('index.html',
+                            text=text, # text from user
+                            sentiment=sentiment # the sentiment of the text from user
+                            )
 
 @app.errorhandler(500)
 def server_error(e):
