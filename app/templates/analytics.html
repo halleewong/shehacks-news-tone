@@ -36,28 +36,37 @@
 {% block content %}
 
 
-
 <div class="container">
   <h5>Your Keywords: </h5> {{query}}
+  <h5> </h5>
 
   <div class="row">
       <div class="col-md-6">
-          <div class="panel panel-default">
+          <div class="panel panel-default img-responsive">
               <div class="panel-heading">
                   <h3>Sentiment Breakdown</h3>
               </div>
-              <div class="panel-body">
-                  <div id="piechart" style="width: 900px; height: 500px;"></div>
+              <div class="panel-body img-responsive">
+                  <div id="piechart" style="width: 700px; height: 500px; "></div>
               </div>
           </div>
       </div>
           <div class="col-md-6">
-              <div class="panel panel-default">
+              <div class="panel panel-default img-responsive">
                   <div class="panel-heading">
                       <h3>Articles</h3>
-                      {{table}}
-
-
+                      <h3> </h3>
+                  </div>
+                  <div class="panel-body" id="table">
+                    <div style="height:400px;
+                                width:550px;
+                                border:solid 2px #D3D3D3;
+                                overflow:scroll;
+                                overflow-y:scroll;">
+                      <p style="height:1px;">
+                        {{table}}
+                      </p>
+                    </div>
                   </div>
               </div>
           </div>

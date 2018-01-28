@@ -49,7 +49,7 @@ def get_analytics():
             # get search results
             results = getOtherArticles(query, cx_key = cx)
 
-            for i in range(3):
+            for i in range(1):
                 topresult = getSingleArticle(results, index=i)
 
                 if 'snippet' in topresult:
