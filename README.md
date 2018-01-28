@@ -21,10 +21,7 @@ Create a solution that will help combat the fake news phenomena.
 ## Tools and APIs 
 - Python
 - Flask
-- Google Cloud Natural Language API
-- Google Cloud Custom Search API
-- Google Cloud Compute Engine
-- Google Cloud App Engine
+- Google Cloud Platform's Natural Language API, Custom Search API, Compute Engine, and App Engine
 
 ## Implemented Solution
 We relied on the Google Cloud Natural Language API to measure the sentiment analysis of different news articles. With the sentiment score of an article, we can infer whether an article is more opinionated or factual. 
