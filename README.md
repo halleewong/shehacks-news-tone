@@ -1,7 +1,7 @@
 # SheHacks Boston Project
 
 ## Goal
-Create a solution that will help combat the fake news phenomena.
+Create a web app to analyze political polarization in online news media
 
 ## Competing Categories
 - **Google Cloud Platform**
@@ -14,7 +14,7 @@ Create a solution that will help combat the fake news phenomena.
 *Create a solution that will help combat the fake news phenomena.*
 
 
-- `She </LEARNS>`
+- **`She </LEARNS>`**
 
 *Beginner Hack Award! For the beginner team (where at least half of team members have never attended a hackathon before) with most ambitous hack.*
 
