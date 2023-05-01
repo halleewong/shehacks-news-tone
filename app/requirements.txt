@@ -1,4 +1,4 @@
-flask==0.12.2
+flask==2.3.2
 flask_table
 google-cloud-language==1.0.0
 google-api-python-client
